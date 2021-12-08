@@ -27,7 +27,7 @@ Main классом является [Main](lab4_parser_generator/src/main/kotli
 
 **Подробнее:**
 
-Полное описание грамматики, которой должен удовлетворять входной файл находится [здесь](lab4_parser_generator/src/main/antlr/Grammar.g4). Дополнительно добавлена визуализация дерева с помощью GraphViz
+Полное описание грамматики, которой должен удовлетворять входной файл находится [здесь](lab4_parser_generator/src/main/antlr/Grammar.g4). Дополнительно добавлена визуализация дерева с помощью GraphViz [примеры](lab4_parser_generator/src/test/resources/images)
 
 Сгенерированные примеры: 
 
