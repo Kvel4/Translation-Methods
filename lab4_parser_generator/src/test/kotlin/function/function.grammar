@@ -1,0 +1,40 @@
+
+-> expression
+
+expression: Tree -> functionType NAME LPAREN arguments RPAREN SEMICOLON
+    { Tree("E", functionType, Tree("NAME"), Tree("LPAREN"), arguments, Tree("RPAREN"))};
+
+functionType: Tree
+    -> TYPE { Tree("FT", Tree("TYPE")) }
+    | VOID { Tree("FT", Tree("VOID")) }
+    ;
+
+arguments: Tree
+    -> argumentsPrime { Tree ("AS", argumentsPrime) }
+    | { Tree("EPS") }
+    ;
+    
+argumentsPrime: Tree -> argument argumentsPrimePrime { Tree("AS'", argument, argumentsPrimePrime) } ;
+
+argumentsPrimePrime: Tree
+    -> COMMA argumentsPrime { Tree ("AS''", Tree("COMMA"), argumentsPrime) }
+    | { Tree("EPS") }
+    ;
+
+argument: Tree -> TYPE argumentName { Tree ("A", Tree("TYPE"), argumentName) };
+
+argumentName: Tree
+    -> POINTER argumentName { Tree ("AN", Tree("POINTER"), argumentName) }
+    | NAME { Tree ("AN", Tree("NAME")) }
+    | { Tree("EPS") }
+    ; 
+
+POINTER -> "*";
+LPAREN -> "(";
+RPAREN -> ")";
+COMMA -> ",";
+SEMICOLON -> ";";
+VOID -> "void";
+TYPE -> 'int|double';
+NAME -> '(?!(int|double|void))[a-z][a-zA-Z0-9]*';
+WS => '[ \t\n\r]';

@@ -1,0 +1,12 @@
+E -> FT N(AS);
+
+FT -> TYPE | VOID
+
+AS -> EPS | AS'
+AS' -> A AS"
+AS" -> EPS | "," AS'
+
+A -> TYPE AN
+
+AN -> "*" AN | N | EPS
+N -> IDENTIFIER

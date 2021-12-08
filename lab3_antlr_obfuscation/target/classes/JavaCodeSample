@@ -1,0 +1,17 @@
+class Main {
+    public static void main(String[] args) throws Exception
+    {
+        String s = "";
+        int a = 1, b = 0;
+        double d = 123.0;
+
+        while (b < 10) {
+            if (a == 1) {
+                s = s + "asd";
+            }
+            d = d * 10;
+        }
+
+        System.out.println(s + a + b + d);
+    }
+}

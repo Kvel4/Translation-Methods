@@ -1,0 +1,43 @@
+
+-> expr
+
+expr: Double -> term exprPrime(term) { exprPrime };
+
+exprPrime(t: Double): Double
+    -> PLUS term { val res = t + term } exprPrime(res) { exprPrime }
+    | MINUS term { val res = t - term } exprPrime(res) { exprPrime }
+    | { t }
+    ;
+
+term: Double -> unary termPrime(unary) { termPrime };
+
+termPrime(f: Double): Double
+    -> MUL unary { val res = f * unary } termPrime(res) { termPrime }
+    | DIV unary { val res = f / unary } termPrime(res) { termPrime }
+    | { f }
+    ;
+
+unary: Double
+    -> fact postUnary(fact) { postUnary }
+    ;
+
+fact: Double
+    -> LPAREN expr RPAREN { expr }
+    | NUMBER { NUMBER.toDouble() }
+    ;
+
+postUnary(num: Double): Double
+    -> FACTORIAL { val res = runtime.factorial(num).toDouble() } postUnary(res) { postUnary }
+    | { num }
+    ;
+
+
+PLUS -> "+";
+MINUS -> "-";
+MUL -> "*";
+DIV -> "/";
+LPAREN -> "(";
+RPAREN -> ")";
+FACTORIAL -> "!";
+NUMBER -> '[0-9]+';
+WS => '[ \t\n\r]';
