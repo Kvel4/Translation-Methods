@@ -34,6 +34,6 @@ Main классом является [Main](lab4_parser_generator/src/main/kotli
 * [Калькулятор](lab4_parser_generator/src/test/kotlin/calc) - реализован калькулятор с операциями `+`,`-`,`*`,`/`, а также в качестве модификации была доделана факториал `!`. 
 
     [Грамматика калькулятора](lab4_parser_generator/src/test/kotlin/calc/calc.grammar).
-* [Парсер массивов](lab4_parser_generator/src/test/kotlin/function) - реализован парсер объявлений массивов в Pascal.(см. Вариант 9 2-ой лабораторной) 
+* [Парсер заголовков](lab4_parser_generator/src/test/kotlin/function) - реализован парсер заголовков функций в С
     
     Простейшая [грамматика объявления массивов](lab4_parser_generator/src/test/kotlin/function/function.grammar).
